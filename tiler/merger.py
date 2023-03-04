@@ -1,8 +1,7 @@
-from typing import Union, Tuple, List, Optional
+from typing import Any, Union, Tuple, List, Optional
 import warnings
 
 import numpy as np
-import numpy.typing as npt
 
 from tiler import Tiler
 from tiler._windows import get_window
@@ -61,8 +60,8 @@ class Merger:
         window: Union[None, str, np.ndarray] = None,
         logits: int = 0,
         save_visits: bool = True,
-        data_dtype: npt.DTypeLike = np.float32,
-        weights_dtype: npt.DTypeLike = np.float32,
+        data_dtype: Any = np.float32,
+        weights_dtype: Any = np.float32,
     ):
         """Merger holds cumulative result buffers for merging tiles created by a given Tiler
         and the window function that is applied to added tiles.
@@ -355,7 +354,7 @@ class Merger:
         extra_padding: Optional[List[Tuple[int, int]]] = None,
         argmax: bool = False,
         normalize_by_weights: bool = True,
-        dtype: Optional[npt.DTypeLike] = None,
+        dtype: Optional[Any] = None,
     ) -> np.ndarray:
         """Returns merged data array obtained from added tiles.
 
